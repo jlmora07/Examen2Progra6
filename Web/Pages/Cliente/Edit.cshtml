@@ -1,0 +1,107 @@
+﻿@page
+@model Web.Pages.Cliente.EditModel
+@{
+}
+<div id="AppEdit" class="container">
+    <div class="card">
+        <div class="card-header">
+            @(Model.id.HasValue?"Actualizar":"Nuevo")
+        </div>
+        <div class="card-body">
+            <form id="FormEdit" method="post">
+                <input type="hidden" asp-for="Entity.IdCliente" />
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Identificacion" class="form-label">Identificacion</label>
+                    <input type="text" class="form-control" asp-for="Entity.Identificacion" maxlength="250" required>
+                </div>
+
+                             <!-- Lista Cliente -->
+                <div class="form-group mb-3">
+                    <label for="Entity.IdTipoCliente" class="form-label">Cliente</label>
+
+                    <select asp-for="Entity.IdTipoIdentificacion" class="form-select" v-model="Entity.IdTipoIdentificacion"
+                            asp-items="@(new SelectList(Model.TipoClienteLista,"IdTipoIdentificacion","Descripcion"))" required>
+                  
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" asp-for="Entity.Nombre" maxlength="250" required>
+                </div>
+
+                <div class="form-group  mb-3">
+                    <label for="Entity.PrimerApellido" class="form-label">Primer Apellido</label>
+                    <input type="text" class="form-control" asp-for="Entity.PrimerApellido" maxlength="250" required>
+                </div>
+
+                <div class="form-group  mb-3">
+                    <label for="Entity.SegundoApellido" class="form-label">Segundo Apellido</label>
+                    <input type="text" class="form-control" asp-for="Entity.SegundoApellido" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Edad" class="form-label">Fecha Nacimiento</label>
+                    <input type="date" class="form-control" asp-for="Entity.FechaNacimiento" required>
+                </div>
+
+                 <div class="form-group mb-3">
+                    <label for="Entity.Edad" class="form-label">Nacionalidad</label>
+                    <input type="text" class="form-control" asp-for="Entity.Nacionalidad" required>
+                </div>
+
+                 <div class="form-group mb-3">
+                    <label for="Entity.Edad" class="form-label">Fecha Defuncion</label>
+                    <input type="date" class="form-control" asp-for="Entity.FechaDefuncion" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Edad" class="form-label">Genero</label>
+                    <input type="text" class="form-control" asp-for="Entity.Genero" required>
+                </div>
+              
+                <div class="form-group mb-3">
+                    <label for="Entity.Edad" class="form-label">Nombre Completo Padre</label>
+                    <input type="text" class="form-control" asp-for="Entity.NombreApellidosPadre" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Edad" class="form-label">Nombre Completo Madre</label>
+                    <input type="text" class="form-control" asp-for="Entity.NombreApellidosMadre" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Edad" class="form-label">Pasaporte</label>
+                    <input type="text" class="form-control" asp-for="Entity.Pasaporte" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Edad" class="form-label">Cuenta IBAN</label>
+                    <input type="text" class="form-control" asp-for="Entity.CuentaIBAN" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Edad" class="form-label">Correo Notificaiones</label>
+                    <input type="text" class="form-control" asp-for="Entity.CorreoNotifica" required>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-primary">
+                            @(Model.id.HasValue?"Actualizar":"Agregar")
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script defer src="~/App/Cliente/Edit.js"></script>
+
+}
